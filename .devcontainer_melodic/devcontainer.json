@@ -1,0 +1,35 @@
+{
+	"name": "MelodicDevContainer",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"extensions": [
+		"ms-vscode.cpptools-extension-pack",
+		"eamodio.gitlens",
+		"ms-iot.vscode-ros",
+		"ms-vscode-remote.remote-ssh",
+		"ms-azuretools.vscode-docker",
+		"donjayamanne.githistory",
+		"ms-python.python",
+		"xaver.clang-format",
+		"notskm.clang-tidy",
+		"cheshirekow.cmake-format"
+	],
+	"postCreateCommand": ".devcontainer/post_create.sh", 
+	"postStartCommand": "nohup bash -c '/opt/ros/melodic/bin/roscore &' >/dev/null 2>&1 &",
+	"remoteEnv": {
+		"ROS_DISTRO": "melodic",
+		"containerWorkspaceFolder": "${containerWorkspaceFolder}",
+	},
+	"mounts": [
+		"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind",
+	],
+	"runArgs": [
+		"-e","DISPLAY=:1",
+		"-e","NVIDIA_VISIBLE_DEVICES=all",
+		"-e","NVIDIA_DRIVER_CAPABILITIES=all",
+		"--gpus","all",
+		"--runtime=nvidia",
+		// "--name", "vsdevcontainer",
+	]
+}

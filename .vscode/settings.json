@@ -1,0 +1,54 @@
+{
+    "files.associations": {
+        "memory": "cpp",
+        "*.ipp": "cpp",
+        "*.tcc": "cpp",
+        "fstream": "cpp"
+    },
+    "files.exclude": {
+        // ".vscode": true,
+        // ".devcontainer" : true,
+        // ".dev_overlay" : true,
+        // ".devcontainer_noetic" : true,
+        // ".devcontainer_melodic" : true,
+        // ".gitignore": true,
+        // ".clang-tidy": true,
+        // "data/": true,
+        "lib/": true
+    },
+    "search.exclude": {
+        "lib/": true,
+        "build/": true,
+        "data/": true,
+        // "catkin_ws/devel/": true,
+        "catkin_ws/build/": true
+    },
+    // Clang-tidy with compdb: https://maximilianmbeck.com/post/clang-tidy_vs-code/
+    "clang-tidy.compilerArgs": [
+        "-I/usr/include/c++/5.5.0",
+        "-I/usr/include/x86_64-linux-gnu/c++/5",
+        "-I/usr/local/include",
+        "-I/usr/include/eigen3",
+        "-I/usr/include/pcl-1.10",
+        "-I/usr/include/opencv4",
+        "-I/opt/ros/noetic/include",
+        // "-I${workspaceFolder}/**"
+        "-Icatkin_ws/devel/include",
+        "-Icatkin_ws/src/common/include",
+        "-Icatkin_ws/src/ego_motion/include",
+        // "-Icatkin_ws/src/Others/include",
+        // "-Icatkin_ws/src/Others/include/Others",
+    ],
+    "C_Cpp.codeAnalysis.clangTidy.args": [],
+    "clang-tidy.checks":  [
+        "-*", 
+        "google-*", 
+        "cppcoreguidelines-*",
+        // "clang-analyzer-*",
+        // "clang-diagnostic-*",
+        // "clang-*", 
+        // "readability-*", 
+        // "-cppcoreguidelines-pro-bounds-constant-array-index"
+    ],
+    "git.ignoreLimitWarning": true,
+}
